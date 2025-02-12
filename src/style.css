@@ -1,0 +1,21 @@
+body{
+    background-color: cornflowerblue;
+    height: 3000px;
+
+}
+.top-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    background-color: transparent;
+    transition: background-color 0.5s;
+    color: white;
+}
+.nav-item{
+    margin: 20px 40px;
+}
