@@ -24,3 +24,30 @@ document.addEventListener('DOMContentLoaded', ()=>{
         movieList.appendChild(movieBox);
     }
 })
+
+// 윈도우 크기의 따라 반응형
+window.addEventListener('resize', ()=>{
+    const windowBody = document.querySelector('body');
+    const movieContainer = document.querySelector('.movie-container');
+    const mainIntroduction = document.querySelector('.main-introduction');
+    const movieBox = document.querySelector('.movie-box');
+    let windowWidth = windowBody.getBoundingClientRect().width;
+    console.log(windowBody.getBoundingClientRect().width);
+
+    if (windowWidth<500) {
+        mainIntroduction.style.marginTop = '300px';
+        movieContainer.style.marginTop = '100px';
+        movieBox.style.width = '300px';
+        movieBox.style.height = '400px';
+    } else if (windowWidth<700){
+        mainIntroduction.style.marginTop = '400px';
+        movieContainer.style.marginTop = '100px';
+        movieBox.style.width = '200px';
+        movieBox.style.height = '300px';
+    } else if (windowWidth<1000) {
+        mainIntroduction.style.marginTop = '200px';
+        movieContainer.style.marginTop = '300px';
+    } else {
+        movieContainer.style.marginTop = '400px';
+    }
+})
