@@ -1,6 +1,5 @@
 // 최상단일 때 네비바 스타일 변경
 document.addEventListener('scroll', ()=>{
-    console.log("현재 스크롤 위치:", window.scrollY);
     const topNav = document.querySelector('.top-nav');
     if (window.scrollY>0) {
         topNav.style.backgroundColor = 'white';
@@ -27,12 +26,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 // 윈도우 크기의 따라 반응형
 window.addEventListener('resize', ()=>{
-    const windowBody = document.querySelector('body');
     const movieContainer = document.querySelector('.movie-container');
     const mainIntroduction = document.querySelector('.main-introduction');
     const movieBox = document.querySelector('.movie-box');
-    let windowWidth = windowBody.getBoundingClientRect().width;
-    console.log(windowBody.getBoundingClientRect().width);
+    let windowWidth = window.innerWidth;
 
     if (windowWidth<500) {
         mainIntroduction.style.marginTop = '300px';
