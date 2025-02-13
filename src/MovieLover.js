@@ -51,3 +51,20 @@ window.addEventListener('resize', ()=>{
         movieContainer.style.marginTop = '400px';
     }
 })
+
+// 영화 목록 클릭 시 이동
+document.querySelector('.moveList').addEventListener('click', () => {
+    function scrollMove(y) {
+        window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+        });
+    }
+    if (window.innerWidth<500) {
+        scrollMove(500)
+    } else if (window.innerWidth<1000) {
+        scrollMove(600)
+    } else {
+        scrollMove(700)
+    }
+})

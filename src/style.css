@@ -21,6 +21,13 @@ body{
 .nav-item{
     margin: 20px 40px;
 }
+.moveList{
+    cursor: pointer;
+}
+.moveList:hover{
+    transform: scale(1.1);
+    transition: 1s;
+}
 .main-introduction{
     color: white;
     display: flex;
