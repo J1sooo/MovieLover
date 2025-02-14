@@ -17,17 +17,31 @@ document.addEventListener('scroll', ()=>{
 let movie = ['../img/movie/기생충.jpg', '../img/movie/너의이름은.jpg', '../img/movie/모아나2.jpg',
                     '../img/movie/센과치히로의행방불명.jpg', '../img/movie/어벤져스인피니티워.jpg',
                     '../img/movie/인사이드아웃2.jpg', '../img/movie/탑건매버릭.jpg'];
+const popup = document.querySelector('.popup-container');
+
 document.addEventListener('DOMContentLoaded', ()=>{
     const movieList = document.querySelector('.movie-list');
 
     for (let i=0;i<movie.length;i++){
         const movieBox = document.createElement('div');
-        movieBox.classList.add("movie-box");
+        movieBox.classList.add('movie-box');
         movieBox.style.backgroundImage = `url(${movie[i]})`;
-        movieBox.style.backgroundSize = "cover";
+        movieBox.style.backgroundSize = 'cover';
         movieList.appendChild(movieBox);
+
+        // 개별 영화 박스 클릭 시 팝업 열기
+
+        movieBox.addEventListener('click', () => {
+            const popupBox = document.querySelector('.popup-box');
+            popupBox.src = movie[i];
+            popup.style.display = 'flex';
+        });
     }
 })
+// 팝업 창 닫기
+function closePopup(){
+    popup.style.display = 'none';
+}
 
 // 윈도우 크기의 따라 반응형
 window.addEventListener('resize', ()=>{
