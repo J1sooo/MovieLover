@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const movieList = document.querySelector('.movie-list');
 
     for (let i = 0; i < movie.length; i++) {
-        const movieBox = document.createElement('div');
+        const movieBox = document.createElement('figure');
         movieBox.classList.add('movie-box');
         movieBox.style.backgroundImage = `url(${movie[i]})`;
         movieBox.style.backgroundSize = 'cover';
