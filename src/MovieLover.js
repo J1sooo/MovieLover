@@ -39,9 +39,10 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 })
 // 팝업 창 닫기
-function closePopup(){
+document.querySelector('.close-button').addEventListener('click',()=>{
     popup.style.display = 'none';
-}
+})
+
 
 // 윈도우 크기의 따라 반응형
 window.addEventListener('resize', ()=>{
