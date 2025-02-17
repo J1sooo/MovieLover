@@ -1,7 +1,7 @@
 // 최상단일 때 네비바 스타일 변경
-document.addEventListener('scroll', ()=>{
+document.addEventListener('scroll', () => {
     const topNav = document.querySelector('.top-nav');
-    if (window.scrollY>0) {
+    if (window.scrollY > 0) {
         topNav.style.backgroundColor = 'white';
         topNav.style.color = 'black';
         topNav.style.boxShadow = '0 0 5px 3px gray';
@@ -15,14 +15,14 @@ document.addEventListener('scroll', ()=>{
 
 // 영화 사진 생성
 let movie = ['../img/movie/기생충.jpg', '../img/movie/너의이름은.jpg', '../img/movie/모아나2.jpg',
-                    '../img/movie/센과치히로의행방불명.jpg', '../img/movie/어벤져스인피니티워.jpg',
-                    '../img/movie/인사이드아웃2.jpg', '../img/movie/탑건매버릭.jpg'];
+    '../img/movie/센과치히로의행방불명.jpg', '../img/movie/어벤져스인피니티워.jpg',
+    '../img/movie/인사이드아웃2.jpg', '../img/movie/탑건매버릭.jpg'];
 const popup = document.querySelector('.popup-container');
 
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
     const movieList = document.querySelector('.movie-list');
 
-    for (let i=0;i<movie.length;i++){
+    for (let i = 0; i < movie.length; i++) {
         const movieBox = document.createElement('div');
         movieBox.classList.add('movie-box');
         movieBox.style.backgroundImage = `url(${movie[i]})`;
@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         movieList.appendChild(movieBox);
 
         // 개별 영화 박스 클릭 시 팝업 열기
-
         movieBox.addEventListener('click', () => {
             const popupBox = document.querySelector('.popup-box');
             popupBox.src = movie[i];
@@ -39,33 +38,33 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 })
 // 팝업 창 닫기
-document.querySelector('.close-button').addEventListener('click',()=>{
+document.querySelector('.close-button').addEventListener('click', () => {
     popup.style.display = 'none';
 })
 
 
 // 윈도우 크기의 따라 반응형
-window.addEventListener('resize', ()=>{
+window.addEventListener('resize', () => {
     const movieContainer = document.querySelector('.movie-container');
     const mainIntroduction = document.querySelector('.main-introduction');
     const movieBox = document.querySelectorAll('.movie-box');
     let windowWidth = window.innerWidth;
 
-    if (windowWidth<500) {
+    if (windowWidth < 500) {
         mainIntroduction.style.marginTop = '300px';
         movieContainer.style.marginTop = '100px';
-        movieBox.forEach(box=>{
+        movieBox.forEach(box => {
             box.style.width = '300px';
             box.style.height = '450px';
         })
-    } else if (windowWidth<700){
+    } else if (windowWidth < 700) {
         mainIntroduction.style.marginTop = '400px';
         movieContainer.style.marginTop = '100px';
-        movieBox.forEach(box=> {
+        movieBox.forEach(box => {
             box.style.width = '200px';
             box.style.height = '300px';
         })
-    } else if (windowWidth<1000) {
+    } else if (windowWidth < 1000) {
         mainIntroduction.style.marginTop = '200px';
         movieContainer.style.marginTop = '300px';
     } else {
@@ -81,9 +80,10 @@ document.querySelector('.moveList').addEventListener('click', () => {
             behavior: 'smooth'
         });
     }
-    if (window.innerWidth<500) {
+
+    if (window.innerWidth < 500) {
         scrollMove(500)
-    } else if (window.innerWidth<1000) {
+    } else if (window.innerWidth < 1000) {
         scrollMove(600)
     } else {
         scrollMove(700)

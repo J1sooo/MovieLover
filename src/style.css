@@ -1,4 +1,4 @@
-body{
+body {
     background-image: url("../img/cinema.png");
     background-size: 100%;
     background-attachment: fixed;
@@ -6,7 +6,8 @@ body{
     background-color: black;
     margin: 0;
 }
-.top-nav{
+
+.top-nav {
     position: fixed;
     top: 0;
     width: 100%;
@@ -18,17 +19,21 @@ body{
     transition: background-color 0.5s;
     color: white;
 }
-.nav-item{
+
+.nav-item {
     margin: 20px 40px;
 }
-.moveList{
+
+.moveList {
     cursor: pointer;
 }
-.moveList:hover{
+
+.moveList:hover {
     transform: scale(1.1);
     transition: 1s;
 }
-.main-introduction{
+
+.main-introduction {
     color: white;
     display: flex;
     justify-content: center;
@@ -37,31 +42,36 @@ body{
     height: 160px;
     transition: margin 0.5s;
 }
-.movie-introduction{
+
+.movie-introduction {
     display: flex;
     justify-content: center;
     text-align: center;
     margin-bottom: 50px;
 }
-.movie-container{
+
+.movie-container {
     margin-top: 400px;
     background-color: white;
     height: auto;
     padding: 30px 0;
     transition: margin 0.5s;
 }
-.movie-list{
+
+.movie-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-.movie-box{
+
+.movie-box {
     width: 200px;
     height: 300px;
     border: 1px solid;
     margin: 0 20px 40px;
 }
-.popup-container{
+
+.popup-container {
     display: none;
     position: fixed;
     top: 0;
@@ -70,19 +80,22 @@ body{
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color:rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.popup-box{
+
+.popup-box {
     width: auto;
     height: 90%;
 }
-.close-button{
+
+.close-button {
     position: absolute;
     top: 50px;
     right: 35px;
     font-size: 50px;
     cursor: pointer;
 }
-.close-button:after{
+
+.close-button:after {
     content: "\00d7";
 }
