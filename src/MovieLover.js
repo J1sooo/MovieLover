@@ -72,6 +72,14 @@ window.addEventListener('resize', () => {
     }
 })
 
+// 영화 로고 클릭 시 최상단 이동
+document.querySelector('.moveTop').addEventListener('click',()=>{
+    window.scrollTo({
+        top:0,
+        behavior: 'smooth'
+    });
+})
+
 // 영화 목록 클릭 시 이동
 document.querySelector('.moveList').addEventListener('click', () => {
     function scrollMove(y) {

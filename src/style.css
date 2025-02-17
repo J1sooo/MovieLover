@@ -24,7 +24,7 @@ body {
     margin: 20px 40px;
 }
 
-.moveList {
+.moveList, .moveTop {
     cursor: pointer;
 }
 
