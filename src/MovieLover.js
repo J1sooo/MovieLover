@@ -42,9 +42,8 @@ document.querySelector('.close-button').addEventListener('click', () => {
     popup.style.display = 'none';
 })
 
-
 // 윈도우 크기의 따라 반응형
-window.addEventListener('resize', () => {
+const autoWidth = () => {
     const movieContainer = document.querySelector('.movie-container');
     const mainIntroduction = document.querySelector('.main-introduction');
     const movieBox = document.querySelectorAll('.movie-box');
@@ -70,6 +69,10 @@ window.addEventListener('resize', () => {
     } else {
         movieContainer.style.marginTop = '400px';
     }
+}
+// 브라우저 실행 시, 사용자의 반응에 따른 적용
+['DOMContentLoaded','resize'].forEach(evt=>{
+    window.addEventListener(evt,autoWidth);
 })
 
 // 영화 로고 클릭 시 최상단 이동
