@@ -14,9 +14,9 @@ document.addEventListener('scroll', () => {
 
 
 // 영화 사진 생성
-let movie = ['../img/movie/기생충.jpg', '../img/movie/너의이름은.jpg', '../img/movie/모아나2.jpg',
-    '../img/movie/센과치히로의행방불명.jpg', '../img/movie/어벤져스인피니티워.jpg',
-    '../img/movie/인사이드아웃2.jpg', '../img/movie/탑건매버릭.jpg'];
+let movie = ['기생충.jpg', '너의이름은.jpg', '모아나2.jpg',
+    '센과치히로의행방불명.jpg', '어벤져스인피니티워.jpg',
+    '인사이드아웃2.jpg', '탑건매버릭.jpg'];
 const popup = document.querySelector('.popup-container');
 const popupBox = document.querySelector('.popup-box');
 
@@ -26,14 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < movie.length; i++) {
         const movieBox = document.createElement('figure');
         movieBox.classList.add('movie-box');
-        movieBox.style.backgroundImage = `url(${movie[i]})`;
+        movieBox.style.backgroundImage = `url(../img/movie/${movie[i]})`;
         movieBox.style.backgroundSize = 'cover';
         movieList.appendChild(movieBox);
 
         // 개별 영화 박스 클릭 시 팝업 열기
         movieBox.addEventListener('click', () => {
             popupBox.style.height = '90%';
-            popupBox.src = movie[i];
+            popupBox.src = `../img/movie/${movie[i]}`;
             popup.style.display = 'flex';
         });
     }
