@@ -100,3 +100,9 @@ document.querySelector('.moveList').addEventListener('click', () => {
         scrollMove(700)
     }
 })
+
+// 깃허브 링크 새창에서 열기
+document.querySelector('.foot-content').addEventListener('click',()=>{
+    window.open('https://github.com/J1sooo/MovieLover')
+})
+

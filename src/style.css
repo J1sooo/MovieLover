@@ -24,7 +24,7 @@ body {
     margin: 20px 40px;
 }
 
-.moveList, .moveTop {
+.moveList, .moveTop, .foot-content {
     cursor: pointer;
 }
 
@@ -99,4 +99,21 @@ body {
 
 .close-button:after {
     content: "\00d7";
+}
+
+.foot {
+    padding: 30px 0;
+    background-color: #f4f4f4;
+    border-top: 1px solid #dddddd;
+    display: flex;
+    justify-content: center;
+}
+
+.foot-content {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: max-content;
+    color: #555;
+    font-size: small;
+    text-align: center;
 }
