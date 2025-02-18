@@ -1,18 +1,3 @@
-// 최상단일 때 네비바 스타일 변경
-document.addEventListener('scroll', () => {
-    const topNav = document.querySelector('.top-nav');
-    if (window.scrollY > 0) {
-        topNav.style.backgroundColor = 'white';
-        topNav.style.color = 'black';
-        topNav.style.boxShadow = '0 0 5px 3px gray';
-    } else {
-        topNav.style.backgroundColor = 'transparent';
-        topNav.style.color = 'white';
-        topNav.style.boxShadow = '0 0 0 0';
-    }
-})
-
-
 // 영화 사진 생성
 let movie = ['기생충.jpg', '너의이름은.jpg', '모아나2.jpg',
     '센과치히로의행방불명.jpg', '어벤져스인피니티워.jpg',
@@ -49,13 +34,27 @@ document.addEventListener('wheel', (evt) => {
         evt.preventDefault();
         let imgHeight = parseInt(popupBox.style.height);
         if (evt.deltaY < 0) {
-            imgHeight+=5;
+            imgHeight += 5;
         } else {
-            imgHeight-=5;
+            imgHeight -= 5;
         }
-        popupBox.style.height = imgHeight+'%';
+        popupBox.style.height = imgHeight + '%';
     }
 }, {passive: false})
+
+// 최상단일 때 네비바 스타일 변경
+document.addEventListener('scroll', () => {
+    const topNav = document.querySelector('.top-nav');
+    if (window.scrollY > 0) {
+        topNav.style.backgroundColor = 'white';
+        topNav.style.color = 'black';
+        topNav.style.boxShadow = '0 0 5px 3px gray';
+    } else {
+        topNav.style.backgroundColor = 'transparent';
+        topNav.style.color = 'white';
+        topNav.style.boxShadow = '0 0 0 0';
+    }
+})
 
 // 윈도우 크기의 따라 반응형
 const autoWidth = () => {
