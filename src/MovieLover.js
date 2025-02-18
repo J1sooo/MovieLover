@@ -18,6 +18,7 @@ let movie = ['../img/movie/기생충.jpg', '../img/movie/너의이름은.jpg', '
     '../img/movie/센과치히로의행방불명.jpg', '../img/movie/어벤져스인피니티워.jpg',
     '../img/movie/인사이드아웃2.jpg', '../img/movie/탑건매버릭.jpg'];
 const popup = document.querySelector('.popup-container');
+const popupBox = document.querySelector('.popup-box');
 
 document.addEventListener('DOMContentLoaded', () => {
     const movieList = document.querySelector('.movie-list');
@@ -31,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 개별 영화 박스 클릭 시 팝업 열기
         movieBox.addEventListener('click', () => {
-            const popupBox = document.querySelector('.popup-box');
+            popupBox.style.height = '90%';
             popupBox.src = movie[i];
             popup.style.display = 'flex';
         });
@@ -41,6 +42,20 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelector('.close-button').addEventListener('click', () => {
     popup.style.display = 'none';
 })
+
+// 팝업 창 이미지 확대 축소
+document.addEventListener('wheel', (evt) => {
+    if (popup.style.display === 'flex') {
+        evt.preventDefault();
+        let imgHeight = parseInt(popupBox.style.height);
+        if (evt.deltaY < 0) {
+            imgHeight+=5;
+        } else {
+            imgHeight-=5;
+        }
+        popupBox.style.height = imgHeight+'%';
+    }
+}, {passive: false})
 
 // 윈도우 크기의 따라 반응형
 const autoWidth = () => {
@@ -71,14 +86,14 @@ const autoWidth = () => {
     }
 }
 // 브라우저 실행 시, 사용자의 반응에 따른 적용
-['DOMContentLoaded','resize'].forEach(evt=>{
-    window.addEventListener(evt,autoWidth);
+['DOMContentLoaded', 'resize'].forEach(evt => {
+    window.addEventListener(evt, autoWidth);
 })
 
 // 영화 로고 클릭 시 최상단 이동
-document.querySelector('.moveTop').addEventListener('click',()=>{
+document.querySelector('.moveTop').addEventListener('click', () => {
     window.scrollTo({
-        top:0,
+        top: 0,
         behavior: 'smooth'
     });
 })
@@ -102,7 +117,7 @@ document.querySelector('.moveList').addEventListener('click', () => {
 })
 
 // 깃허브 링크 새창에서 열기
-document.querySelector('.foot-content').addEventListener('click',()=>{
+document.querySelector('.foot-content').addEventListener('click', () => {
     window.open('https://github.com/J1sooo/MovieLover')
 })
 
