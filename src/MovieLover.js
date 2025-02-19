@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 개별 영화 박스 클릭 시 팝업 열기
         movieBox.addEventListener('click', () => {
-            popupBox.style.height = '90%';
+            popupBox.style.height = '70%';
             popupBox.src = `../img/movie/${movie[i]}`;
             popup.style.display = 'flex';
         });
