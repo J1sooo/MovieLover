@@ -42,6 +42,25 @@ document.addEventListener('wheel', (evt) => {
     }
 }, {passive: false})
 
+// 팝업 창 이미지 변경
+const movePopupImg = (evt, arrow) => {
+    if (popup.style.display === 'flex') {
+        let popupImg = movie.indexOf(decodeURI(popupBox.src.split('/').pop()));
+        if ((evt.key === 'ArrowLeft' || arrow === 'left') && popupImg > 0) {
+            popupImg -= 1;
+        } else if ((evt.key === 'ArrowRight' || arrow === 'right') && popupImg < movie.length - 1) {
+            popupImg += 1;
+        }
+        popupBox.src = `../img/movie/${movie[popupImg]}`;
+    }
+}
+
+// 화살표 방향으로 변경
+document.addEventListener('keydown', movePopupImg);
+// 클릭으로 변경
+document.querySelector('.arrow-left').addEventListener('click', () => movePopupImg({}, 'left'));
+document.querySelector('.arrow-right').addEventListener('click', () => movePopupImg({}, 'right'));
+
 // 최상단일 때 네비바 스타일 변경
 document.addEventListener('scroll', () => {
     const topNav = document.querySelector('.top-nav');

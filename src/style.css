@@ -24,7 +24,7 @@ body {
     margin: 20px 40px;
 }
 
-.moveList, .moveTop, .foot-content {
+.moveList, .moveTop, .foot-content, .arrow-left, .arrow-right {
     cursor: pointer;
 }
 
@@ -99,6 +99,29 @@ body {
 
 .close-button:after {
     content: "\00d7";
+}
+
+.move-img {
+    position: absolute;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrow-left {
+    width: 30px;
+    height: 30px;
+    border-left: 5px solid white;
+    border-bottom: 5px solid white;
+    transform: rotate(45deg);
+}
+
+.arrow-right {
+    width: 30px;
+    height: 30px;
+    border-left: 5px solid white;
+    border-bottom: 5px solid white;
+    transform: rotate(-135deg);
 }
 
 .foot {
