@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const movieList = document.querySelector('.movie-list');
 
     for (let i = 0; i < movie.length; i++) {
-        const movieBox = document.createElement('figure');
+        const movieBox = document.createElement('img');
         movieBox.classList.add('movie-box');
-        movieBox.style.backgroundImage = `url(../img/movie/${movie[i]})`;
-        movieBox.style.backgroundSize = 'cover';
+        movieBox.src = `../img/movie/${movie[i]}`;
+        movieBox.alt = movie[i];
         movieList.appendChild(movieBox);
 
         // 개별 영화 박스 클릭 시 팝업 열기
