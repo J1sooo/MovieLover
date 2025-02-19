@@ -18,19 +18,20 @@ body {
     background-color: transparent;
     transition: background-color 0.5s;
     color: white;
+    z-index: 1000;
 }
 
 .nav-item {
     margin: 20px 40px;
 }
 
-.moveList, .moveTop, .foot-content, .arrow-left, .arrow-right {
+.moveList, .moveTop, .foot-content, .arrow-left, .arrow-right, .movie-box {
     cursor: pointer;
 }
 
-.moveList:hover {
+.moveList:hover, .movie-box:hover {
     transform: scale(1.1);
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .main-introduction {
