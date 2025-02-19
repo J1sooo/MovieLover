@@ -42,6 +42,27 @@ document.addEventListener('wheel', (evt) => {
     }
 }, {passive: false})
 
+// 검색 기능
+const search = document.querySelector('.search > input')
+
+search.addEventListener('keydown', (evt) => {
+    let keyword = search.value.replaceAll(' ','');
+    const movieBoxes = document.querySelectorAll('.movie-box');
+    if (evt.key === 'Enter') {
+        for (let i = 0; i < movie.length; i++) {
+            if (movie[i].includes(keyword)) {
+                movieBoxes[i].style.display = 'flex';
+            } else {
+                movieBoxes[i].style.display = 'none';
+            }
+        }
+    } else if (evt.key === 'Backspace' && keyword.length === 1) {
+        movieBoxes.forEach(box => {
+            box.style.display = 'flex';
+        })
+    }
+})
+
 // 팝업 창 이미지 변경
 const movePopupImg = (evt, arrow) => {
     if (popup.style.display === 'flex') {
