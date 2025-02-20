@@ -96,39 +96,6 @@ document.addEventListener('scroll', () => {
     }
 })
 
-// 윈도우 크기의 따라 반응형
-const autoWidth = () => {
-    const movieContainer = document.querySelector('.movie-container');
-    const mainIntroduction = document.querySelector('.main-introduction');
-    const movieBox = document.querySelectorAll('.movie-box');
-    let windowWidth = window.innerWidth;
-
-    if (windowWidth < 500) {
-        mainIntroduction.style.marginTop = '300px';
-        movieContainer.style.marginTop = '100px';
-        movieBox.forEach(box => {
-            box.style.width = '300px';
-            box.style.height = '450px';
-        })
-    } else if (windowWidth < 700) {
-        mainIntroduction.style.marginTop = '400px';
-        movieContainer.style.marginTop = '100px';
-        movieBox.forEach(box => {
-            box.style.width = '200px';
-            box.style.height = '300px';
-        })
-    } else if (windowWidth < 1000) {
-        mainIntroduction.style.marginTop = '200px';
-        movieContainer.style.marginTop = '300px';
-    } else {
-        movieContainer.style.marginTop = '400px';
-    }
-}
-// 브라우저 실행 시, 사용자의 반응에 따른 적용
-['DOMContentLoaded', 'resize'].forEach(evt => {
-    window.addEventListener(evt, autoWidth);
-})
-
 // 영화 로고 클릭 시 최상단 이동
 document.querySelector('.moveTop').addEventListener('click', () => {
     window.scrollTo({
