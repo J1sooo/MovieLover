@@ -38,7 +38,6 @@ document.addEventListener('wheel', (evt) => {
     if (popup.style.display === 'flex') {
         evt.preventDefault();
         let imgHeight = parseInt(popupBox.style.height);
-        console.log(imgHeight);
         if (evt.deltaY < 0) {
             imgHeight += 5;
         } else {
