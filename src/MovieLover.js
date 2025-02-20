@@ -17,7 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 개별 영화 박스 클릭 시 팝업 열기
         movieBox.addEventListener('click', () => {
-            popupBox.style.height = '70%';
+            let windowWidth = window.innerWidth;
+            if (windowWidth<500){
+                popupBox.style.height = '50%';
+            } else {
+                popupBox.style.height = '70%';
+            }
             popupBox.src = `../img/movie/${movie[i]}`;
             popup.style.display = 'flex';
         });
@@ -33,6 +38,7 @@ document.addEventListener('wheel', (evt) => {
     if (popup.style.display === 'flex') {
         evt.preventDefault();
         let imgHeight = parseInt(popupBox.style.height);
+        console.log(imgHeight);
         if (evt.deltaY < 0) {
             imgHeight += 5;
         } else {
