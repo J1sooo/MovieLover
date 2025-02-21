@@ -52,8 +52,8 @@ const search = document.querySelector('.search > input')
 
 search.addEventListener('keydown', (evt) => {
     let keyword = search.value.replaceAll(' ','');
-    const movieBoxes = document.querySelectorAll('.movie-box');
     if (evt.key === 'Enter') {
+        const movieBoxes = document.querySelectorAll('.movie-box');
         for (let i = 0; i < movie.length; i++) {
             if (movie[i].includes(keyword)) {
                 movieBoxes[i].style.display = 'flex';
@@ -61,7 +61,12 @@ search.addEventListener('keydown', (evt) => {
                 movieBoxes[i].style.display = 'none';
             }
         }
-    } else if (evt.key === 'Backspace' && keyword.length === 1) {
+    }
+})
+search.addEventListener('input',()=>{
+    let keyword = search.value.replaceAll(' ','');
+    if (keyword.length===0){
+        const movieBoxes = document.querySelectorAll('.movie-box');
         movieBoxes.forEach(box => {
             box.style.display = 'flex';
         })
