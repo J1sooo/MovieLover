@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < movie.length; i++) {
         const movieBox = document.createElement('img');
         movieBox.classList.add('movie-box');
-        movieBox.src = `../img/movie/${movie[i]}`;
+        movieBox.src = `img/movie/${movie[i]}`;
         movieBox.alt = movie[i];
         movieList.appendChild(movieBox);
 
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 popupBox.style.height = '70%';
             }
-            popupBox.src = `../img/movie/${movie[i]}`;
+            popupBox.src = `img/movie/${movie[i]}`;
             popup.style.display = 'flex';
         });
     }
@@ -82,7 +82,7 @@ const movePopupImg = (evt, arrow) => {
         } else if ((evt.key === 'ArrowRight' || arrow === 'right') && popupImg < movie.length - 1) {
             popupImg += 1;
         }
-        popupBox.src = `../img/movie/${movie[popupImg]}`;
+        popupBox.src = `img/movie/${movie[popupImg]}`;
     }
 }
 
