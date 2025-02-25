@@ -148,7 +148,7 @@ body {
 }
 
 .foot {
-    padding: 30px 0;
+    padding: 50px 0 30px;
     background-color: #f4f4f4;
     border-top: 1px solid #dddddd;
     display: flex;
