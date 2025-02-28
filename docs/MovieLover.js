@@ -22,7 +22,7 @@ const renderMovie = () => {
         // 개별 영화 박스 클릭 시 팝업 열기
         movieBox.addEventListener('click', () => {
             let windowWidth = window.innerWidth;
-            if (windowWidth<500){
+            if (windowWidth < 500) {
                 popupBox.style.height = '50%';
             } else {
                 popupBox.style.height = '70%';
@@ -30,7 +30,7 @@ const renderMovie = () => {
             popupBox.src = `img/movie/${movie[i]}`;
             popup.style.display = 'flex';
 
-            ['borderLeft','borderBottom'].forEach(borderEvt => {
+            ['borderLeft', 'borderBottom'].forEach(borderEvt => {
                 arrowLeft.style[borderEvt] = i === 0 ? 'none' : '5px solid white';
                 arrowRight.style[borderEvt] = i === movie.length - 1 ? 'none' : '5px solid white';
             })
@@ -39,7 +39,7 @@ const renderMovie = () => {
         });
     }
 }
-document.addEventListener('DOMContentLoaded',renderMovie)
+document.addEventListener('DOMContentLoaded', renderMovie)
 
 // 팝업 창 닫기
 document.querySelector('.close-button').addEventListener('click', () => {
@@ -64,7 +64,7 @@ document.addEventListener('wheel', (evt) => {
 const search = document.querySelector('.search > input')
 
 search.addEventListener('keydown', (evt) => {
-    let keyword = search.value.replaceAll(' ','');
+    let keyword = search.value.replaceAll(' ', '');
     if (evt.key === 'Enter') {
         for (let i = 0; i < movie.length; i++) {
             movie = movie.filter(item => item.includes(keyword))
@@ -72,8 +72,8 @@ search.addEventListener('keydown', (evt) => {
         renderMovie();
     }
 })
-search.addEventListener('input',()=>{
-    if (search.value.length===0){
+search.addEventListener('input', () => {
+    if (search.value.length === 0) {
         movie = originMovie;
         renderMovie()
     }
@@ -89,7 +89,7 @@ const movePopupImg = (evt, arrow) => {
             popupImg += 1;
         }
         popupBox.src = `img/movie/${movie[popupImg]}`;
-        ['borderLeft','borderBottom'].forEach(borderEvt => {
+        ['borderLeft', 'borderBottom'].forEach(borderEvt => {
             arrowLeft.style[borderEvt] = popupImg === 0 ? 'none' : '5px solid white';
             arrowRight.style[borderEvt] = popupImg === movie.length - 1 ? 'none' : '5px solid white';
         })
