@@ -76,13 +76,21 @@ search.addEventListener('input',()=>{
 // 팝업 창 이미지 변경
 const movePopupImg = (evt, arrow) => {
     if (popup.style.display === 'flex') {
-        let popupImg = movie.indexOf(decodeURI(popupBox.src.split('/').pop()));
+        const movieBoxes = document.querySelectorAll('.movie-box');
+        let filterMovie = [];
+        movieBoxes.forEach((box, index) => {
+            if (box.style.display !== 'none') {
+                filterMovie.push(movie[index]);
+            }
+        })
+        let popupImg = filterMovie.indexOf(decodeURI(popupBox.src.split('/').pop()));
         if ((evt.key === 'ArrowLeft' || arrow === 'left') && popupImg > 0) {
             popupImg -= 1;
-        } else if ((evt.key === 'ArrowRight' || arrow === 'right') && popupImg < movie.length - 1) {
+
+        } else if ((evt.key === 'ArrowRight' || arrow === 'right') && popupImg < filterMovie.length - 1) {
             popupImg += 1;
         }
-        popupBox.src = `img/movie/${movie[popupImg]}`;
+        popupBox.src = `img/movie/${filterMovie[popupImg]}`;
     }
 }
 
