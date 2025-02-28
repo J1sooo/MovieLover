@@ -4,6 +4,8 @@ let movie = ['기생충.jpg', '너의이름은.jpg', '모아나2.jpg',
     '인사이드아웃2.jpg', '탑건매버릭.jpg'];
 const popup = document.querySelector('.popup-container');
 const popupBox = document.querySelector('.popup-box');
+const arrowLeft = document.querySelector('.arrow-left');
+const arrowRight = document.querySelector('.arrow-right');
 
 document.addEventListener('DOMContentLoaded', () => {
     const movieList = document.querySelector('.movie-list');
@@ -25,6 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             popupBox.src = `img/movie/${movie[i]}`;
             popup.style.display = 'flex';
+
+            ['borderLeft','borderBottom'].forEach(borderEvt => {
+                arrowLeft.style[borderEvt] = i === 0 ? 'none' : '5px solid white';
+                arrowRight.style[borderEvt] = i === movie.length - 1 ? 'none' : '5px solid white';
+            })
+            arrowLeft.style.cursor = i === 0 ? 'default' : 'pointer';
+            arrowRight.style.cursor = i === movie.length - 1 ? 'default' : 'pointer';
         });
     }
 })
@@ -86,11 +95,16 @@ const movePopupImg = (evt, arrow) => {
         let popupImg = filterMovie.indexOf(decodeURI(popupBox.src.split('/').pop()));
         if ((evt.key === 'ArrowLeft' || arrow === 'left') && popupImg > 0) {
             popupImg -= 1;
-
         } else if ((evt.key === 'ArrowRight' || arrow === 'right') && popupImg < filterMovie.length - 1) {
             popupImg += 1;
         }
         popupBox.src = `img/movie/${filterMovie[popupImg]}`;
+        ['borderLeft','borderBottom'].forEach(borderEvt => {
+            arrowLeft.style[borderEvt] = popupImg === 0 ? 'none' : '5px solid white';
+            arrowRight.style[borderEvt] = popupImg === filterMovie.length - 1 ? 'none' : '5px solid white';
+        })
+        arrowLeft.style.cursor = popupImg === 0 ? 'default' : 'pointer';
+        arrowRight.style.cursor = popupImg === filterMovie.length - 1 ? 'default' : 'pointer';
     }
 }
 
