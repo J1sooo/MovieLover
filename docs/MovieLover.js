@@ -2,13 +2,15 @@
 let movie = ['기생충.jpg', '너의이름은.jpg', '모아나2.jpg',
     '센과치히로의행방불명.jpg', '어벤져스인피니티워.jpg',
     '인사이드아웃2.jpg', '탑건매버릭.jpg'];
+let originMovie = movie;
 const popup = document.querySelector('.popup-container');
 const popupBox = document.querySelector('.popup-box');
 const arrowLeft = document.querySelector('.arrow-left');
 const arrowRight = document.querySelector('.arrow-right');
 
-document.addEventListener('DOMContentLoaded', () => {
+const renderMovie = () => {
     const movieList = document.querySelector('.movie-list');
+    movieList.innerHTML = '';
 
     for (let i = 0; i < movie.length; i++) {
         const movieBox = document.createElement('img');
@@ -36,7 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
             arrowRight.style.cursor = i === movie.length - 1 ? 'default' : 'pointer';
         });
     }
-})
+}
+document.addEventListener('DOMContentLoaded',renderMovie)
+
 // 팝업 창 닫기
 document.querySelector('.close-button').addEventListener('click', () => {
     popup.style.display = 'none';
@@ -62,49 +66,35 @@ const search = document.querySelector('.search > input')
 search.addEventListener('keydown', (evt) => {
     let keyword = search.value.replaceAll(' ','');
     if (evt.key === 'Enter') {
-        const movieBoxes = document.querySelectorAll('.movie-box');
         for (let i = 0; i < movie.length; i++) {
-            if (movie[i].includes(keyword)) {
-                movieBoxes[i].style.display = 'flex';
-            } else {
-                movieBoxes[i].style.display = 'none';
-            }
+            movie = movie.filter(item => item.includes(keyword))
         }
+        renderMovie();
     }
 })
 search.addEventListener('input',()=>{
-    let keyword = search.value.replaceAll(' ','');
-    if (keyword.length===0){
-        const movieBoxes = document.querySelectorAll('.movie-box');
-        movieBoxes.forEach(box => {
-            box.style.display = 'flex';
-        })
+    if (search.value.length===0){
+        movie = originMovie;
+        renderMovie()
     }
 })
 
 // 팝업 창 이미지 변경
 const movePopupImg = (evt, arrow) => {
     if (popup.style.display === 'flex') {
-        const movieBoxes = document.querySelectorAll('.movie-box');
-        let filterMovie = [];
-        movieBoxes.forEach((box, index) => {
-            if (box.style.display !== 'none') {
-                filterMovie.push(movie[index]);
-            }
-        })
-        let popupImg = filterMovie.indexOf(decodeURI(popupBox.src.split('/').pop()));
+        let popupImg = movie.indexOf(decodeURI(popupBox.src.split('/').pop()));
         if ((evt.key === 'ArrowLeft' || arrow === 'left') && popupImg > 0) {
             popupImg -= 1;
-        } else if ((evt.key === 'ArrowRight' || arrow === 'right') && popupImg < filterMovie.length - 1) {
+        } else if ((evt.key === 'ArrowRight' || arrow === 'right') && popupImg < movie.length - 1) {
             popupImg += 1;
         }
-        popupBox.src = `img/movie/${filterMovie[popupImg]}`;
+        popupBox.src = `img/movie/${movie[popupImg]}`;
         ['borderLeft','borderBottom'].forEach(borderEvt => {
             arrowLeft.style[borderEvt] = popupImg === 0 ? 'none' : '5px solid white';
-            arrowRight.style[borderEvt] = popupImg === filterMovie.length - 1 ? 'none' : '5px solid white';
+            arrowRight.style[borderEvt] = popupImg === movie.length - 1 ? 'none' : '5px solid white';
         })
         arrowLeft.style.cursor = popupImg === 0 ? 'default' : 'pointer';
-        arrowRight.style.cursor = popupImg === filterMovie.length - 1 ? 'default' : 'pointer';
+        arrowRight.style.cursor = popupImg === movie.length - 1 ? 'default' : 'pointer';
     }
 }
 
