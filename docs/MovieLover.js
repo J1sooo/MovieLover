@@ -30,16 +30,26 @@ const renderMovie = () => {
             popupBox.src = `img/movie/${movie[i]}`;
             popup.style.display = 'flex';
 
-            ['borderLeft', 'borderBottom'].forEach(borderEvt => {
-                arrowLeft.style[borderEvt] = i === 0 ? 'none' : '5px solid white';
-                arrowRight.style[borderEvt] = i === movie.length - 1 ? 'none' : '5px solid white';
-            })
-            arrowLeft.style.cursor = i === 0 ? 'default' : 'pointer';
-            arrowRight.style.cursor = i === movie.length - 1 ? 'default' : 'pointer';
+            updateArrow(i, movie.length);
         });
     }
 }
 document.addEventListener('DOMContentLoaded', renderMovie)
+
+// 팝업 양 끝 도달하면 화살표 없어짐
+const updateArrow = (popupImgIndex, movieLength) => {
+    const isFirst = popupImgIndex === 0;
+    const isLast = popupImgIndex === movieLength-1;
+
+    arrowLeft.style.borderLeft = isFirst ? 'none' : '5px solid white';
+    arrowLeft.style.borderBottom = isFirst ? 'none' : '5px solid white';
+
+    arrowRight.style.borderLeft = isLast ? 'none' : '5px solid white';
+    arrowRight.style.borderBottom = isLast ? 'none' : '5px solid white';
+
+    arrowLeft.style.cursor = isFirst ? 'default' : 'pointer';
+    arrowRight.style.cursor = isLast ? 'default' : 'pointer';
+}
 
 // 팝업 창 닫기
 document.querySelector('.close-button').addEventListener('click', () => {
@@ -89,12 +99,8 @@ const movePopupImg = (evt, arrow) => {
             popupImg += 1;
         }
         popupBox.src = `img/movie/${movie[popupImg]}`;
-        ['borderLeft', 'borderBottom'].forEach(borderEvt => {
-            arrowLeft.style[borderEvt] = popupImg === 0 ? 'none' : '5px solid white';
-            arrowRight.style[borderEvt] = popupImg === movie.length - 1 ? 'none' : '5px solid white';
-        })
-        arrowLeft.style.cursor = popupImg === 0 ? 'default' : 'pointer';
-        arrowRight.style.cursor = popupImg === movie.length - 1 ? 'default' : 'pointer';
+
+        updateArrow(popupImg, movie.length);
     }
 }
 
