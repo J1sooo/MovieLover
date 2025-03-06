@@ -37,18 +37,17 @@ const renderMovie = () => {
 document.addEventListener('DOMContentLoaded', renderMovie)
 
 // 팝업 양 끝 도달하면 화살표 없어짐
+const setArrow = (arrow, isEnabled) => {
+    arrow.style.borderLeft = isEnabled ? 'none' : '5px solid white';
+    arrow.style.borderBottom = isEnabled ? 'none' : '5px solid white';
+    arrow.style.cursor = isEnabled ? 'default' : 'pointer';
+}
 const updateArrow = (popupImgIndex, movieLength) => {
     const isFirst = popupImgIndex === 0;
     const isLast = popupImgIndex === movieLength-1;
 
-    arrowLeft.style.borderLeft = isFirst ? 'none' : '5px solid white';
-    arrowLeft.style.borderBottom = isFirst ? 'none' : '5px solid white';
-
-    arrowRight.style.borderLeft = isLast ? 'none' : '5px solid white';
-    arrowRight.style.borderBottom = isLast ? 'none' : '5px solid white';
-
-    arrowLeft.style.cursor = isFirst ? 'default' : 'pointer';
-    arrowRight.style.cursor = isLast ? 'default' : 'pointer';
+    setArrow(arrowLeft, isFirst);
+    setArrow(arrowRight, isLast);
 }
 
 // 팝업 창 닫기
