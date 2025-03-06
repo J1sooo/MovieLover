@@ -1,8 +1,8 @@
 // 영화 사진 생성
-let movie = ['기생충.jpg', '너의이름은.jpg', '모아나2.jpg',
+const originMovie = ['기생충.jpg', '너의이름은.jpg', '모아나2.jpg',
     '센과치히로의행방불명.jpg', '어벤져스인피니티워.jpg',
     '인사이드아웃2.jpg', '탑건매버릭.jpg'];
-let originMovie = movie;
+let movie = originMovie;
 const popup = document.querySelector('.popup-container');
 const popupBox = document.querySelector('.popup-box');
 const arrowLeft = document.querySelector('.arrow-left');
