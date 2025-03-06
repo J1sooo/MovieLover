@@ -73,19 +73,14 @@ document.addEventListener('wheel', (evt) => {
 // 검색 기능
 const search = document.querySelector('.search > input')
 
-search.addEventListener('keydown', (evt) => {
-    let keyword = search.value.replaceAll(' ', '');
-    if (evt.key === 'Enter') {
-        for (let i = 0; i < movie.length; i++) {
-            movie = movie.filter(item => item.includes(keyword))
-        }
-        renderMovie();
-    }
-})
-search.addEventListener('input', () => {
+search.addEventListener('keyup', (evt) => {
     if (search.value.length === 0) {
         movie = originMovie;
-        renderMovie()
+        renderMovie();
+    } else if (evt.key === 'Enter') {
+        const keyword = search.value.replaceAll(' ', '');
+        movie = originMovie.filter(item => item.includes(keyword))
+        renderMovie();
     }
 })
 
